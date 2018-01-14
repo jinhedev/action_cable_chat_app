@@ -1,4 +1,5 @@
 class MessagesController < ApplicationController
+  
   before_action :logged_in_user
   before_action :get_messages
 
@@ -16,12 +17,13 @@ class MessagesController < ApplicationController
 
   private
 
-    def get_messages
-      @messages = Message.for_display
-      @message  = current_user.messages.build
-    end
+  def get_messages
+    @messages = Message.for_display
+    @message  = current_user.messages.build
+  end
 
-    def message_params
-      params.require(:message).permit(:content)
-    end
+  def message_params
+    params.require(:message).permit(:content)
+  end
+
 end
