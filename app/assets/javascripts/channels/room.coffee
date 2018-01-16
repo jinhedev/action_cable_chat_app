@@ -7,7 +7,7 @@ App.room = App.cable.subscriptions.create "RoomChannel",
 
   received: (data) ->
     alert("You have been mentioned") if data.mention
-    if (data.message && data.message.blank?)
+    if (data.message) # checkout this line of code. Something somewhere is probably written incorrectly...
       $('#messages-table').append data.message
       scroll_bottom()
 
